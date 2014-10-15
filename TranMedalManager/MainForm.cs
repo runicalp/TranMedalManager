@@ -85,6 +85,9 @@ namespace TranMedalManager {
         /// 保存処理
         /// </summary>
         private void Save() {
+            // フィルタを一旦解除
+            var prevFilter = this.bindingSource.Filter;
+            this.bindingSource.RemoveFilter();
             // チェックの入った行のみ取得
             var list = this.tranMedalDataGridView.Rows.Cast<DataGridViewRow>().Where( _ => _.Cells[ 0 ].Value.Equals( true ) );
             // IDをタブ区切りにした文字列を生成
@@ -98,6 +101,8 @@ namespace TranMedalManager {
             }
             // 保存確認フラグを下ろす
             this.isSaveConfirm = false;
+            // フィルタを戻す
+            this.bindingSource.Filter = prevFilter;
         }
 
         /// <summary>

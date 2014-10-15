@@ -26,7 +26,7 @@ namespace TranMedalManager {
         public static void Load() {
             // ディクショナリを初期化
             dictionary.Clear();
-            // ResorcesからCSV読み込み
+            // CSV読み込み
             var csv = System.IO.File.ReadAllText( Properties.Resources.TranMedalDataFileName );
             // 前後の空行を削除した上で、改行コードでSplit
             var lines = csv.Trim().Split( '\n' );
