@@ -34,7 +34,28 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fillterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterCategoryLevelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterCategoryVersionAndDifficultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterCategoryDjLevelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterCategoryClearLampToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterCategoryDaniNinteiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterCategoryRivalChallengeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterCategoryTodaysRecommendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterCategoryDjPointToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterCategoryPilgrimageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterCategoryStepUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterCategoryChronoSeekerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterRankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ブロンズToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.シルバーToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ゴールドToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.プラチナToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterFlagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterFlagClearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterFlagNotClearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.tranMedalDataGridView)).BeginInit();
             this.mainFormMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +87,7 @@
             // 
             this.tranMedalColumnCheckBoxDataGridView.HeaderText = "達成";
             this.tranMedalColumnCheckBoxDataGridView.Name = "tranMedalColumnCheckBoxDataGridView";
+            this.tranMedalColumnCheckBoxDataGridView.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // tranMedalColumnIdDataGridView
             // 
@@ -80,7 +102,6 @@
             this.tranMedalColumnNameDataGridView.Name = "tranMedalColumnNameDataGridView";
             this.tranMedalColumnNameDataGridView.ReadOnly = true;
             this.tranMedalColumnNameDataGridView.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tranMedalColumnNameDataGridView.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // tranMedalColumnCategoryDataGridView
             // 
@@ -88,7 +109,6 @@
             this.tranMedalColumnCategoryDataGridView.Name = "tranMedalColumnCategoryDataGridView";
             this.tranMedalColumnCategoryDataGridView.ReadOnly = true;
             this.tranMedalColumnCategoryDataGridView.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tranMedalColumnCategoryDataGridView.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // tranMedalColumnRankDataGridView
             // 
@@ -96,7 +116,6 @@
             this.tranMedalColumnRankDataGridView.Name = "tranMedalColumnRankDataGridView";
             this.tranMedalColumnRankDataGridView.ReadOnly = true;
             this.tranMedalColumnRankDataGridView.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tranMedalColumnRankDataGridView.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // tranMedalColumnConditionDataGridView
             // 
@@ -108,7 +127,7 @@
             // 
             this.mainFormMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.fillterToolStripMenuItem});
+            this.filterToolStripMenuItem});
             this.mainFormMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainFormMenuStrip.Name = "mainFormMenuStrip";
             this.mainFormMenuStrip.Size = new System.Drawing.Size(784, 24);
@@ -142,11 +161,180 @@
             this.quitToolStripMenuItem.Text = "終了";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
-            // fillterToolStripMenuItem
+            // filterToolStripMenuItem
             // 
-            this.fillterToolStripMenuItem.Name = "fillterToolStripMenuItem";
-            this.fillterToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.fillterToolStripMenuItem.Text = "フィルタ(&L)";
+            this.filterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.filterAllToolStripMenuItem,
+            this.filterFlagToolStripMenuItem,
+            this.filterCategoryToolStripMenuItem,
+            this.filterRankToolStripMenuItem});
+            this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
+            this.filterToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.filterToolStripMenuItem.Text = "フィルタ(&L)";
+            // 
+            // filterCategoryToolStripMenuItem
+            // 
+            this.filterCategoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.filterCategoryLevelToolStripMenuItem,
+            this.filterCategoryVersionAndDifficultToolStripMenuItem,
+            this.filterCategoryDjLevelToolStripMenuItem,
+            this.filterCategoryClearLampToolStripMenuItem,
+            this.filterCategoryDaniNinteiToolStripMenuItem,
+            this.filterCategoryRivalChallengeToolStripMenuItem,
+            this.filterCategoryTodaysRecommendToolStripMenuItem,
+            this.filterCategoryDjPointToolStripMenuItem,
+            this.filterCategoryPilgrimageToolStripMenuItem,
+            this.filterCategoryStepUpToolStripMenuItem,
+            this.filterCategoryChronoSeekerToolStripMenuItem});
+            this.filterCategoryToolStripMenuItem.Name = "filterCategoryToolStripMenuItem";
+            this.filterCategoryToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.filterCategoryToolStripMenuItem.Text = "カテゴリ";
+            // 
+            // filterCategoryLevelToolStripMenuItem
+            // 
+            this.filterCategoryLevelToolStripMenuItem.Name = "filterCategoryLevelToolStripMenuItem";
+            this.filterCategoryLevelToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.filterCategoryLevelToolStripMenuItem.Text = "譜面レベル";
+            this.filterCategoryLevelToolStripMenuItem.Click += new System.EventHandler(this.filterCategoryMenuItem_Click);
+            // 
+            // filterCategoryVersionAndDifficultToolStripMenuItem
+            // 
+            this.filterCategoryVersionAndDifficultToolStripMenuItem.Name = "filterCategoryVersionAndDifficultToolStripMenuItem";
+            this.filterCategoryVersionAndDifficultToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.filterCategoryVersionAndDifficultToolStripMenuItem.Text = "バージョン・譜面別";
+            this.filterCategoryVersionAndDifficultToolStripMenuItem.Click += new System.EventHandler(this.filterCategoryMenuItem_Click);
+            // 
+            // filterCategoryDjLevelToolStripMenuItem
+            // 
+            this.filterCategoryDjLevelToolStripMenuItem.Name = "filterCategoryDjLevelToolStripMenuItem";
+            this.filterCategoryDjLevelToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.filterCategoryDjLevelToolStripMenuItem.Text = "DJ LEVEL";
+            this.filterCategoryDjLevelToolStripMenuItem.Click += new System.EventHandler(this.filterCategoryMenuItem_Click);
+            // 
+            // filterCategoryClearLampToolStripMenuItem
+            // 
+            this.filterCategoryClearLampToolStripMenuItem.Name = "filterCategoryClearLampToolStripMenuItem";
+            this.filterCategoryClearLampToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.filterCategoryClearLampToolStripMenuItem.Text = "クリアランプ";
+            this.filterCategoryClearLampToolStripMenuItem.Click += new System.EventHandler(this.filterCategoryMenuItem_Click);
+            // 
+            // filterCategoryDaniNinteiToolStripMenuItem
+            // 
+            this.filterCategoryDaniNinteiToolStripMenuItem.Name = "filterCategoryDaniNinteiToolStripMenuItem";
+            this.filterCategoryDaniNinteiToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.filterCategoryDaniNinteiToolStripMenuItem.Text = "段位認定";
+            this.filterCategoryDaniNinteiToolStripMenuItem.Click += new System.EventHandler(this.filterCategoryMenuItem_Click);
+            // 
+            // filterCategoryRivalChallengeToolStripMenuItem
+            // 
+            this.filterCategoryRivalChallengeToolStripMenuItem.Name = "filterCategoryRivalChallengeToolStripMenuItem";
+            this.filterCategoryRivalChallengeToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.filterCategoryRivalChallengeToolStripMenuItem.Text = "ライバル挑戦状";
+            this.filterCategoryRivalChallengeToolStripMenuItem.Click += new System.EventHandler(this.filterCategoryMenuItem_Click);
+            // 
+            // filterCategoryTodaysRecommendToolStripMenuItem
+            // 
+            this.filterCategoryTodaysRecommendToolStripMenuItem.Name = "filterCategoryTodaysRecommendToolStripMenuItem";
+            this.filterCategoryTodaysRecommendToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.filterCategoryTodaysRecommendToolStripMenuItem.Text = "今日のイチオシ";
+            this.filterCategoryTodaysRecommendToolStripMenuItem.Click += new System.EventHandler(this.filterCategoryMenuItem_Click);
+            // 
+            // filterCategoryDjPointToolStripMenuItem
+            // 
+            this.filterCategoryDjPointToolStripMenuItem.Name = "filterCategoryDjPointToolStripMenuItem";
+            this.filterCategoryDjPointToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.filterCategoryDjPointToolStripMenuItem.Text = "DJ POINT";
+            this.filterCategoryDjPointToolStripMenuItem.Click += new System.EventHandler(this.filterCategoryMenuItem_Click);
+            // 
+            // filterCategoryPilgrimageToolStripMenuItem
+            // 
+            this.filterCategoryPilgrimageToolStripMenuItem.Name = "filterCategoryPilgrimageToolStripMenuItem";
+            this.filterCategoryPilgrimageToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.filterCategoryPilgrimageToolStripMenuItem.Text = "行脚";
+            this.filterCategoryPilgrimageToolStripMenuItem.Click += new System.EventHandler(this.filterCategoryMenuItem_Click);
+            // 
+            // filterCategoryStepUpToolStripMenuItem
+            // 
+            this.filterCategoryStepUpToolStripMenuItem.Name = "filterCategoryStepUpToolStripMenuItem";
+            this.filterCategoryStepUpToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.filterCategoryStepUpToolStripMenuItem.Text = "STEP UP";
+            this.filterCategoryStepUpToolStripMenuItem.Click += new System.EventHandler(this.filterCategoryMenuItem_Click);
+            // 
+            // filterCategoryChronoSeekerToolStripMenuItem
+            // 
+            this.filterCategoryChronoSeekerToolStripMenuItem.Name = "filterCategoryChronoSeekerToolStripMenuItem";
+            this.filterCategoryChronoSeekerToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.filterCategoryChronoSeekerToolStripMenuItem.Text = "Chrono Seeker";
+            this.filterCategoryChronoSeekerToolStripMenuItem.Click += new System.EventHandler(this.filterCategoryMenuItem_Click);
+            // 
+            // filterRankToolStripMenuItem
+            // 
+            this.filterRankToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ブロンズToolStripMenuItem,
+            this.シルバーToolStripMenuItem,
+            this.ゴールドToolStripMenuItem,
+            this.プラチナToolStripMenuItem});
+            this.filterRankToolStripMenuItem.Name = "filterRankToolStripMenuItem";
+            this.filterRankToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.filterRankToolStripMenuItem.Text = "Rank";
+            // 
+            // ブロンズToolStripMenuItem
+            // 
+            this.ブロンズToolStripMenuItem.Name = "ブロンズToolStripMenuItem";
+            this.ブロンズToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.ブロンズToolStripMenuItem.Text = "ブロンズ";
+            this.ブロンズToolStripMenuItem.Click += new System.EventHandler(this.filterRankMenuItem_Click);
+            // 
+            // シルバーToolStripMenuItem
+            // 
+            this.シルバーToolStripMenuItem.Name = "シルバーToolStripMenuItem";
+            this.シルバーToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.シルバーToolStripMenuItem.Text = "シルバー";
+            this.シルバーToolStripMenuItem.Click += new System.EventHandler(this.filterRankMenuItem_Click);
+            // 
+            // ゴールドToolStripMenuItem
+            // 
+            this.ゴールドToolStripMenuItem.Name = "ゴールドToolStripMenuItem";
+            this.ゴールドToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.ゴールドToolStripMenuItem.Text = "ゴールド";
+            this.ゴールドToolStripMenuItem.Click += new System.EventHandler(this.filterRankMenuItem_Click);
+            // 
+            // プラチナToolStripMenuItem
+            // 
+            this.プラチナToolStripMenuItem.Name = "プラチナToolStripMenuItem";
+            this.プラチナToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.プラチナToolStripMenuItem.Text = "プラチナ";
+            this.プラチナToolStripMenuItem.Click += new System.EventHandler(this.filterRankMenuItem_Click);
+            // 
+            // filterAllToolStripMenuItem
+            // 
+            this.filterAllToolStripMenuItem.Name = "filterAllToolStripMenuItem";
+            this.filterAllToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.filterAllToolStripMenuItem.Text = "全て";
+            this.filterAllToolStripMenuItem.Click += new System.EventHandler(this.filterAllMenuItem_Click);
+            // 
+            // filterFlagToolStripMenuItem
+            // 
+            this.filterFlagToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.filterFlagClearToolStripMenuItem,
+            this.filterFlagNotClearToolStripMenuItem});
+            this.filterFlagToolStripMenuItem.Name = "filterFlagToolStripMenuItem";
+            this.filterFlagToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.filterFlagToolStripMenuItem.Text = "達成";
+            // 
+            // filterFlagClearToolStripMenuItem
+            // 
+            this.filterFlagClearToolStripMenuItem.Name = "filterFlagClearToolStripMenuItem";
+            this.filterFlagClearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.filterFlagClearToolStripMenuItem.Text = "達成済み";
+            this.filterFlagClearToolStripMenuItem.Click += new System.EventHandler(this.filterFlagMenuItem_Click);
+            // 
+            // filterFlagNotClearToolStripMenuItem
+            // 
+            this.filterFlagNotClearToolStripMenuItem.Name = "filterFlagNotClearToolStripMenuItem";
+            this.filterFlagNotClearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.filterFlagNotClearToolStripMenuItem.Text = "未達成";
+            this.filterFlagNotClearToolStripMenuItem.Click += new System.EventHandler(this.filterFlagMenuItem_Click);
             // 
             // MainForm
             // 
@@ -173,7 +361,7 @@
         private System.Windows.Forms.DataGridView tranMedalDataGridView;
         private System.Windows.Forms.MenuStrip mainFormMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fillterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.DataGridViewCheckBoxColumn tranMedalColumnCheckBoxDataGridView;
@@ -182,6 +370,27 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tranMedalColumnCategoryDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn tranMedalColumnRankDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn tranMedalColumnConditionDataGridView;
+        private System.Windows.Forms.ToolStripMenuItem filterCategoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterRankToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterCategoryLevelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterCategoryVersionAndDifficultToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterCategoryDjLevelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterCategoryClearLampToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterCategoryDaniNinteiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterCategoryRivalChallengeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterCategoryTodaysRecommendToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterCategoryDjPointToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterCategoryPilgrimageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterCategoryStepUpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterCategoryChronoSeekerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ブロンズToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem シルバーToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ゴールドToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem プラチナToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterFlagToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterFlagClearToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterFlagNotClearToolStripMenuItem;
 
     }
 }

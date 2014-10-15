@@ -18,6 +18,11 @@ namespace TranMedalManager {
         /// </summary>
         private bool isSaveConfirm;
 
+        /// <summary>
+        /// DataGridView用のデータソース
+        /// </summary>
+        private BindingSource bindingSource;
+
         #endregion
         //---------------------------------------------------------------------
         #region // public 関数
@@ -52,9 +57,28 @@ namespace TranMedalManager {
                 }
             }
             // 読み込んだデータ分だけDataGridViewに項目を追加
+#if true
+            this.bindingSource = new BindingSource();
+            var dt = new DataTable();
+            dt.Columns.Add( "達成", typeof( bool ) );
+            dt.Columns.Add( "ID", typeof( int ) );
+            dt.Columns.Add( "名称", typeof( string ) );
+            dt.Columns.Add( "カテゴリ", typeof( string ) );
+            dt.Columns.Add( "Rank", typeof( string ) );
+            dt.Columns.Add( "条件", typeof( string ) );
+            var rows = dt.Rows;
+            foreach( var value in TranMedalMasterDataManager.values ) {
+                rows.Add( saveIds.Contains( value.id ), value.id, value.name, value.category, value.rank, value.condition );
+            }
+            this.bindingSource.DataSource = dt;
+            this.tranMedalDataGridView.Columns.Clear();
+            this.tranMedalDataGridView.DataSource = this.bindingSource;
+            this.tranMedalDataGridView.Columns[ 1 ].Visible = false;
+#else
             foreach( var value in TranMedalMasterDataManager.values ) {
                 this.tranMedalDataGridView.Rows.Add( saveIds.Contains( value.id ), value.id, value.name, value.category, value.rank, value.condition );
             }
+#endif
             // 項目内のテキストに応じて列をリサイズ
             this.tranMedalDataGridView.AutoResizeColumns();
 
@@ -142,6 +166,42 @@ namespace TranMedalManager {
         /// <param name="e"></param>
         private void quitToolStripMenuItem_Click( object sender, EventArgs e ) {
             Application.Exit();
+        }
+
+        /// <summary>
+        /// フィルタ(全て) メニュー処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void filterAllMenuItem_Click( object sender, EventArgs e ) {
+            this.bindingSource.RemoveFilter();
+        }
+
+        /// <summary>
+        /// フィルタ(達成) メニュー処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void filterFlagMenuItem_Click( object sender, EventArgs e ) {
+            this.bindingSource.Filter = string.Format( "達成 = '{0}'", ( (ToolStripMenuItem)sender ).Text == "達成済み" );
+        }
+
+        /// <summary>
+        /// フィルタ(カテゴリ) メニュー処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void filterCategoryMenuItem_Click( object sender, EventArgs e ) {
+            this.bindingSource.Filter = string.Format( "カテゴリ = '{0}'", ( (ToolStripMenuItem)sender ).Text );
+        }
+
+        /// <summary>
+        /// フィルタ(Rank) メニュー処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void filterRankMenuItem_Click( object sender, EventArgs e ) {
+            this.bindingSource.Filter = string.Format( "Rank = '{0}'", ( (ToolStripMenuItem)sender ).Text );
         }
 
         /// <summary>
