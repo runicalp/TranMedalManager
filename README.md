@@ -6,7 +6,7 @@ TranMedalManager
 インストール
 ----------------
 
-[TranMedalManager.zip](https://github.com/dj-kusuha/TranMedalManager/blob/master/TranMedalManager.zip) をダウンロードして解凍。  
+[TranMedalManager.zip](https://github.com/dj-kusuha/TranMedalManager/raw/master/TranMedalManager.zip) をダウンロードして解凍。  
 任意のフォルダに置き、 TranMedalManager.exe を起動してください。  
 アンインストールはフォルダごと削除で終わり。
 
