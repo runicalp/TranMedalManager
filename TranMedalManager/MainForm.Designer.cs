@@ -23,18 +23,17 @@
         /// コード エディターで変更しないでください。
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tranMedalDataGridView = new System.Windows.Forms.DataGridView();
-            this.tranMedalColumnCheckBoxDataGridView = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.tranMedalColumnIdDataGridView = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tranMedalColumnNameDataGridView = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tranMedalColumnCategoryDataGridView = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tranMedalColumnRankDataGridView = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tranMedalColumnConditionDataGridView = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mainFormMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterFlagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterFlagClearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterFlagNotClearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filterCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filterCategoryLevelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filterCategoryVersionAndDifficultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,10 +51,8 @@
             this.シルバーToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ゴールドToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.プラチナToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.filterAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.filterFlagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.filterFlagClearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.filterFlagNotClearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ヘルプToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.versionInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.tranMedalDataGridView)).BeginInit();
             this.mainFormMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -65,13 +62,6 @@
             this.tranMedalDataGridView.AllowUserToAddRows = false;
             this.tranMedalDataGridView.AllowUserToDeleteRows = false;
             this.tranMedalDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tranMedalDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.tranMedalColumnCheckBoxDataGridView,
-            this.tranMedalColumnIdDataGridView,
-            this.tranMedalColumnNameDataGridView,
-            this.tranMedalColumnCategoryDataGridView,
-            this.tranMedalColumnRankDataGridView,
-            this.tranMedalColumnConditionDataGridView});
             this.tranMedalDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tranMedalDataGridView.Location = new System.Drawing.Point(0, 24);
             this.tranMedalDataGridView.Name = "tranMedalDataGridView";
@@ -83,51 +73,12 @@
             this.tranMedalDataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.tranMedalDataGridView_CurrentCellDirtyStateChanged);
             this.tranMedalDataGridView.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tranMedalDataGridView_KeyPress);
             // 
-            // tranMedalColumnCheckBoxDataGridView
-            // 
-            this.tranMedalColumnCheckBoxDataGridView.HeaderText = "達成";
-            this.tranMedalColumnCheckBoxDataGridView.Name = "tranMedalColumnCheckBoxDataGridView";
-            this.tranMedalColumnCheckBoxDataGridView.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // tranMedalColumnIdDataGridView
-            // 
-            this.tranMedalColumnIdDataGridView.HeaderText = "ID";
-            this.tranMedalColumnIdDataGridView.Name = "tranMedalColumnIdDataGridView";
-            this.tranMedalColumnIdDataGridView.ReadOnly = true;
-            this.tranMedalColumnIdDataGridView.Visible = false;
-            // 
-            // tranMedalColumnNameDataGridView
-            // 
-            this.tranMedalColumnNameDataGridView.HeaderText = "名称";
-            this.tranMedalColumnNameDataGridView.Name = "tranMedalColumnNameDataGridView";
-            this.tranMedalColumnNameDataGridView.ReadOnly = true;
-            this.tranMedalColumnNameDataGridView.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // tranMedalColumnCategoryDataGridView
-            // 
-            this.tranMedalColumnCategoryDataGridView.HeaderText = "カテゴリ";
-            this.tranMedalColumnCategoryDataGridView.Name = "tranMedalColumnCategoryDataGridView";
-            this.tranMedalColumnCategoryDataGridView.ReadOnly = true;
-            this.tranMedalColumnCategoryDataGridView.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // tranMedalColumnRankDataGridView
-            // 
-            this.tranMedalColumnRankDataGridView.HeaderText = "Rank";
-            this.tranMedalColumnRankDataGridView.Name = "tranMedalColumnRankDataGridView";
-            this.tranMedalColumnRankDataGridView.ReadOnly = true;
-            this.tranMedalColumnRankDataGridView.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // tranMedalColumnConditionDataGridView
-            // 
-            this.tranMedalColumnConditionDataGridView.HeaderText = "条件";
-            this.tranMedalColumnConditionDataGridView.Name = "tranMedalColumnConditionDataGridView";
-            this.tranMedalColumnConditionDataGridView.ReadOnly = true;
-            // 
             // mainFormMenuStrip
             // 
             this.mainFormMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.filterToolStripMenuItem});
+            this.filterToolStripMenuItem,
+            this.ヘルプToolStripMenuItem});
             this.mainFormMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainFormMenuStrip.Name = "mainFormMenuStrip";
             this.mainFormMenuStrip.Size = new System.Drawing.Size(784, 24);
@@ -172,6 +123,36 @@
             this.filterToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.filterToolStripMenuItem.Text = "フィルタ(&L)";
             // 
+            // filterAllToolStripMenuItem
+            // 
+            this.filterAllToolStripMenuItem.Name = "filterAllToolStripMenuItem";
+            this.filterAllToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.filterAllToolStripMenuItem.Text = "全て";
+            this.filterAllToolStripMenuItem.Click += new System.EventHandler(this.filterAllMenuItem_Click);
+            // 
+            // filterFlagToolStripMenuItem
+            // 
+            this.filterFlagToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.filterFlagClearToolStripMenuItem,
+            this.filterFlagNotClearToolStripMenuItem});
+            this.filterFlagToolStripMenuItem.Name = "filterFlagToolStripMenuItem";
+            this.filterFlagToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.filterFlagToolStripMenuItem.Text = "達成";
+            // 
+            // filterFlagClearToolStripMenuItem
+            // 
+            this.filterFlagClearToolStripMenuItem.Name = "filterFlagClearToolStripMenuItem";
+            this.filterFlagClearToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.filterFlagClearToolStripMenuItem.Text = "達成済み";
+            this.filterFlagClearToolStripMenuItem.Click += new System.EventHandler(this.filterFlagMenuItem_Click);
+            // 
+            // filterFlagNotClearToolStripMenuItem
+            // 
+            this.filterFlagNotClearToolStripMenuItem.Name = "filterFlagNotClearToolStripMenuItem";
+            this.filterFlagNotClearToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.filterFlagNotClearToolStripMenuItem.Text = "未達成";
+            this.filterFlagNotClearToolStripMenuItem.Click += new System.EventHandler(this.filterFlagMenuItem_Click);
+            // 
             // filterCategoryToolStripMenuItem
             // 
             this.filterCategoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -187,7 +168,7 @@
             this.filterCategoryStepUpToolStripMenuItem,
             this.filterCategoryChronoSeekerToolStripMenuItem});
             this.filterCategoryToolStripMenuItem.Name = "filterCategoryToolStripMenuItem";
-            this.filterCategoryToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.filterCategoryToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.filterCategoryToolStripMenuItem.Text = "カテゴリ";
             // 
             // filterCategoryLevelToolStripMenuItem
@@ -275,7 +256,7 @@
             this.ゴールドToolStripMenuItem,
             this.プラチナToolStripMenuItem});
             this.filterRankToolStripMenuItem.Name = "filterRankToolStripMenuItem";
-            this.filterRankToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.filterRankToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.filterRankToolStripMenuItem.Text = "Rank";
             // 
             // ブロンズToolStripMenuItem
@@ -306,35 +287,21 @@
             this.プラチナToolStripMenuItem.Text = "プラチナ";
             this.プラチナToolStripMenuItem.Click += new System.EventHandler(this.filterRankMenuItem_Click);
             // 
-            // filterAllToolStripMenuItem
+            // ヘルプToolStripMenuItem
             // 
-            this.filterAllToolStripMenuItem.Name = "filterAllToolStripMenuItem";
-            this.filterAllToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.filterAllToolStripMenuItem.Text = "全て";
-            this.filterAllToolStripMenuItem.Click += new System.EventHandler(this.filterAllMenuItem_Click);
+            this.ヘルプToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.versionInformationToolStripMenuItem});
+            this.ヘルプToolStripMenuItem.Name = "ヘルプToolStripMenuItem";
+            this.ヘルプToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.ヘルプToolStripMenuItem.Text = "ヘルプ(&H)";
+            this.ヘルプToolStripMenuItem.Visible = false;
             // 
-            // filterFlagToolStripMenuItem
+            // versionInformationToolStripMenuItem
             // 
-            this.filterFlagToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.filterFlagClearToolStripMenuItem,
-            this.filterFlagNotClearToolStripMenuItem});
-            this.filterFlagToolStripMenuItem.Name = "filterFlagToolStripMenuItem";
-            this.filterFlagToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.filterFlagToolStripMenuItem.Text = "達成";
-            // 
-            // filterFlagClearToolStripMenuItem
-            // 
-            this.filterFlagClearToolStripMenuItem.Name = "filterFlagClearToolStripMenuItem";
-            this.filterFlagClearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.filterFlagClearToolStripMenuItem.Text = "達成済み";
-            this.filterFlagClearToolStripMenuItem.Click += new System.EventHandler(this.filterFlagMenuItem_Click);
-            // 
-            // filterFlagNotClearToolStripMenuItem
-            // 
-            this.filterFlagNotClearToolStripMenuItem.Name = "filterFlagNotClearToolStripMenuItem";
-            this.filterFlagNotClearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.filterFlagNotClearToolStripMenuItem.Text = "未達成";
-            this.filterFlagNotClearToolStripMenuItem.Click += new System.EventHandler(this.filterFlagMenuItem_Click);
+            this.versionInformationToolStripMenuItem.Name = "versionInformationToolStripMenuItem";
+            this.versionInformationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.versionInformationToolStripMenuItem.Text = "バージョン情報";
+            this.versionInformationToolStripMenuItem.Click += new System.EventHandler(this.versionInformationToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -343,6 +310,7 @@
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.tranMedalDataGridView);
             this.Controls.Add(this.mainFormMenuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainFormMenuStrip;
             this.Name = "MainForm";
             this.Text = "トランメダルを管理するアレ";
@@ -364,12 +332,6 @@
         private System.Windows.Forms.ToolStripMenuItem filterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn tranMedalColumnCheckBoxDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tranMedalColumnIdDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tranMedalColumnNameDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tranMedalColumnCategoryDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tranMedalColumnRankDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tranMedalColumnConditionDataGridView;
         private System.Windows.Forms.ToolStripMenuItem filterCategoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem filterRankToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem filterCategoryLevelToolStripMenuItem;
@@ -391,6 +353,8 @@
         private System.Windows.Forms.ToolStripMenuItem filterFlagToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem filterFlagClearToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem filterFlagNotClearToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ヘルプToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem versionInformationToolStripMenuItem;
 
     }
 }

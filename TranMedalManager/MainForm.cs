@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TranMedalManager {
@@ -56,8 +53,7 @@ namespace TranMedalManager {
                     saveIds.Add( Convert.ToInt32( id ) );
                 }
             }
-            // 読み込んだデータ分だけDataGridViewに項目を追加
-#if true
+            // データテーブルを作る
             this.bindingSource = new BindingSource();
             var dt = new DataTable();
             dt.Columns.Add( "達成", typeof( bool ) );
@@ -70,18 +66,17 @@ namespace TranMedalManager {
             foreach( var value in TranMedalMasterDataManager.values ) {
                 rows.Add( saveIds.Contains( value.id ), value.id, value.name, value.category, value.rank, value.condition );
             }
+            // DataGridViewに今作ったデータテーブルを設定
             this.bindingSource.DataSource = dt;
-            this.tranMedalDataGridView.Columns.Clear();
             this.tranMedalDataGridView.DataSource = this.bindingSource;
+            // ID は非表示
             this.tranMedalDataGridView.Columns[ 1 ].Visible = false;
-#else
-            foreach( var value in TranMedalMasterDataManager.values ) {
-                this.tranMedalDataGridView.Rows.Add( saveIds.Contains( value.id ), value.id, value.name, value.category, value.rank, value.condition );
+            // 名前以降の項目は編集不可
+            for( int i = 2; i < dt.Columns.Count; ++i ) {
+                this.tranMedalDataGridView.Columns[ i ].ReadOnly = true;
             }
-#endif
             // 項目内のテキストに応じて列をリサイズ
             this.tranMedalDataGridView.AutoResizeColumns();
-
             // 保存確認フラグを初期化
             this.isSaveConfirm = false;
         }
@@ -202,6 +197,15 @@ namespace TranMedalManager {
         /// <param name="e"></param>
         private void filterRankMenuItem_Click( object sender, EventArgs e ) {
             this.bindingSource.Filter = string.Format( "Rank = '{0}'", ( (ToolStripMenuItem)sender ).Text );
+        }
+
+        /// <summary>
+        /// バージョン情報 メニュー処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void versionInformationToolStripMenuItem_Click( object sender, EventArgs e ) {
+
         }
 
         /// <summary>

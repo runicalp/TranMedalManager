@@ -88,24 +88,11 @@ namespace TranMedalManager.Properties {
         }
         
         /// <summary>
-        ///   1	譜面レベル	LV1譜面初プレー	ブロンズ	LV1の楽曲をプレーする
-        ///2	譜面レベル	LV2譜面初プレー	ブロンズ	LV2の楽曲をプレーする
-        ///3	譜面レベル	LV3譜面初プレー	ブロンズ	LV3の楽曲をプレーする
-        ///4	譜面レベル	LV4譜面初プレー	ブロンズ	LV4の楽曲をプレーする
-        ///5	譜面レベル	LV5譜面初プレー	ブロンズ	LV5の楽曲をプレーする
-        ///6	譜面レベル	LV6譜面初プレー	ブロンズ	LV6の楽曲をプレーする
-        ///7	譜面レベル	LV7譜面初プレー	ブロンズ	LV7の楽曲をプレーする
-        ///8	譜面レベル	LV8譜面初プレー	ブロンズ	LV8の楽曲をプレーする
-        ///9	譜面レベル	LV9譜面初プレー	ブロンズ	LV9の楽曲をプレーする
-        ///10	譜面レベル	LV10譜面初プレー	ブロンズ	LV10の楽曲をプレーする
-        ///11	譜面レベル	LV11譜面初プレー	ブロンズ	LV11の楽曲をプレーする
-        ///12	譜面レベル	LV12譜面初プレー	ブロンズ	LV12の楽曲をプレーする
-        ///13	バージョン・譜面別	1st N譜面初プレー	ブロンズ	1stの楽曲ノーマル譜面をプレーする
-        ///14	バージョン・ [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
+        ///   TranMedalData.csv に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string TranMedalData {
+        internal static string TranMedalDataFileName {
             get {
-                return ResourceManager.GetString("TranMedalData", resourceCulture);
+                return ResourceManager.GetString("TranMedalDataFileName", resourceCulture);
             }
         }
     }

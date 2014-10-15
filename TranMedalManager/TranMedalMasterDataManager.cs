@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace TranMedalManager {
     public static class TranMedalMasterDataManager {
@@ -31,7 +27,7 @@ namespace TranMedalManager {
             // ディクショナリを初期化
             dictionary.Clear();
             // ResorcesからCSV読み込み
-            var csv = Properties.Resources.TranMedalData;
+            var csv = System.IO.File.ReadAllText( Properties.Resources.TranMedalDataFileName );
             // 前後の空行を削除した上で、改行コードでSplit
             var lines = csv.Trim().Split( '\n' );
             // 行数分だけ生成してディクショナリに追加

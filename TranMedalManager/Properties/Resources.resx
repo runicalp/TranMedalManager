@@ -129,8 +129,8 @@
     <value>save.csv</value>
     <comment>セーブファイル名</comment>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TranMedalData" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TranMedalData.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="TranMedalDataFileName" xml:space="preserve">
+    <value>TranMedalData.csv</value>
+    <comment>トランメダルのマスターデータファイル名</comment>
   </data>
 </root>
