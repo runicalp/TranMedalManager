@@ -263,6 +263,8 @@ namespace TranMedalManager {
             if( e.ColumnIndex == 0 ) {
                 // 保存確認フラグを立てる
                 this.isSaveConfirm = true;
+                // データテーブルを更新する
+                ( (DataTable)this.bindingSource.DataSource ).AcceptChanges();
             }
         }
 
