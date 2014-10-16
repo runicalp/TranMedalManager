@@ -85,6 +85,7 @@ namespace TranMedalManager {
             this.bindingSource = new BindingSource();
             var dt = new DataTable();
             dt.Columns.Add( "達成", typeof( bool ) );
+            dt.Columns.Add( "保存前達成フラグ", typeof( bool ) );
             dt.Columns.Add( "ID", typeof( int ) );
             dt.Columns.Add( "名称", typeof( string ) );
             dt.Columns.Add( "カテゴリ", typeof( string ) );
@@ -92,15 +93,17 @@ namespace TranMedalManager {
             dt.Columns.Add( "条件", typeof( string ) );
             var rows = dt.Rows;
             foreach( var value in TranMedalMasterDataManager.values ) {
-                rows.Add( saveIds.Contains( value.id ), value.id, value.name, value.category, value.rank, value.condition );
+                var flag = saveIds.Contains( value.id );
+                rows.Add( flag, flag, value.id, value.name, value.category, value.rank, value.condition );
             }
             // DataGridViewに今作ったデータテーブルを設定
             this.bindingSource.DataSource = dt;
             this.tranMedalDataGridView.DataSource = this.bindingSource;
-            // ID は非表示
+            // 保存前達成フラグ、ID は非表示
             this.tranMedalDataGridView.Columns[ 1 ].Visible = false;
+            this.tranMedalDataGridView.Columns[ 2 ].Visible = false;
             // 名前以降の項目は編集不可
-            for( int i = 2; i < dt.Columns.Count; ++i ) {
+            for( int i = 3; i < dt.Columns.Count; ++i ) {
                 this.tranMedalDataGridView.Columns[ i ].ReadOnly = true;
             }
             // 項目内のテキストに応じて列をリサイズ
@@ -121,12 +124,20 @@ namespace TranMedalManager {
             // IDをタブ区切りにした文字列を生成
             var sb = new StringBuilder();
             foreach( var row in list ) {
-                sb.AppendFormat( "{0}\t", row.Cells[ 1 ].Value );
+                sb.AppendFormat( "{0}\t", row.Cells[ 2 ].Value );
             }
             // ファイルに保存
             using( var sw = new System.IO.StreamWriter( Properties.Resources.SaveFileName ) ) {
                 sw.Write( sb );
             }
+
+            // 保存前達成フラグを更新
+            foreach( DataGridViewRow row in this.tranMedalDataGridView.Rows ) {
+                row.Cells[ 1 ].Value = row.Cells[ 0 ].Value;
+            }
+            // データテーブルを更新する
+            ( (DataTable)this.bindingSource.DataSource ).AcceptChanges();
+            
             // 保存確認フラグを下ろす
             this.isSaveConfirm = false;
             // フィルタを戻す
@@ -211,7 +222,7 @@ namespace TranMedalManager {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void filterFlagMenuItem_Click( object sender, EventArgs e ) {
-            this.bindingSource.Filter = string.Format( "達成 = '{0}'", ( (ToolStripMenuItem)sender ).Text == "達成済み" );
+            this.bindingSource.Filter = string.Format( "保存前達成フラグ = '{0}'", ( (ToolStripMenuItem)sender ).Text == "達成済み" );
         }
 
         /// <summary>
@@ -263,8 +274,6 @@ namespace TranMedalManager {
             if( e.ColumnIndex == 0 ) {
                 // 保存確認フラグを立てる
                 this.isSaveConfirm = true;
-                // データテーブルを更新する
-                ( (DataTable)this.bindingSource.DataSource ).AcceptChanges();
             }
         }
 
