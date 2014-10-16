@@ -11,14 +11,39 @@ namespace TranMedalManager {
         #region // private 変数
 
         /// <summary>
+        /// このフォームの基本となるText
+        /// </summary>
+        private string baseText;
+
+        /// <summary>
         /// 保存確認フラグ
         /// </summary>
-        private bool isSaveConfirm;
+        private bool _isSaveConfirm;
 
         /// <summary>
         /// DataGridView用のデータソース
         /// </summary>
         private BindingSource bindingSource;
+
+        #endregion
+        //---------------------------------------------------------------------
+        #region // private プロパティ
+
+        /// <summary>
+        /// 保存確認フラグ
+        /// </summary>
+        private bool isSaveConfirm {
+            get { return this._isSaveConfirm; }
+            set {
+                // フラグが変更される時、フォームのTextを変更
+                if( this._isSaveConfirm != value ) {
+                    this.Text = value ? this.baseText + " *" : this.baseText;
+                }
+
+                this._isSaveConfirm = value;
+
+            }
+        }
 
         #endregion
         //---------------------------------------------------------------------
@@ -29,6 +54,9 @@ namespace TranMedalManager {
         /// </summary>
         public MainForm() {
             InitializeComponent();
+            
+            // 基本となるTextを保存
+            this.baseText = this.Text;
         }
 
         #endregion
